@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.button`
 
-  background: ${props => props.primary ? "#01c66f" : "#F2F2F2"};
+  background: ${props => props.primary ? "#01c66f" : "#2D3748"};
   display: inline-flex;
   border-radius: 3px;
   border: none;
-  border-color: ${props => props.primary ? "#01c66f" : "#F2F2F2"};
+  border-color: ${props => props.primary ? "#01c66f" : "#2D3748"};
   cursor: pointer;
   position: relative;
   align-items: center;
@@ -19,5 +19,5 @@ export const Wrapper = styled.button`
   font-weight: normal;
   font-size: 13px;
   line-height: 40px;
-  color: ${props => props.primary ? "#fafdfc" : "rgba(3, 18, 11, 0.6)"};
+  color: #fafdfc;
 `;
