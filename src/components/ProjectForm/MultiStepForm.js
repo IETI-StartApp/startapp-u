@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     }    
 });
 export const MultistepForm = () => {
-
+    const buttonMessage = activeStep === steps.length ? "Publicar" : "Next";
     const [activeStep, setActiveStep] = useState(0);
     const handleNext = () => {
         setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -36,7 +36,7 @@ export const MultistepForm = () => {
                     <>
                         {getStepContent(activeStep)}
                         <Button onClick={handleNext}>
-                            {activeStep === steps.length ? "Publicar" : "Next"}
+                            {buttonMessage}
                         </Button>
                     </>
             )}
