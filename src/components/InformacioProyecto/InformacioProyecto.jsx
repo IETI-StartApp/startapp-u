@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles.js'
 import {Wrapper,Titulo, Emprendedor} from './styles'
-import PropTypes from 'prop-types';
 
 
 export const InformacioProyecto = ({
