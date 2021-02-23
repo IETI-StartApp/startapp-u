@@ -5,7 +5,7 @@ import {
     Button,
     TextField,
 } from "@material-ui/core";
-import theme from "../../themeConfig";
+import globalTheme from "../../globalTheme";
 import styles from "./styles"
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
@@ -16,7 +16,7 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
     
     return (
         <div className = {classes.mainContainer}>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={globalTheme}>
                 <Typography variant="h5" className={classes.descriptionHeader}>
                     Elige un nombre para tu proyecto
                 </Typography>
