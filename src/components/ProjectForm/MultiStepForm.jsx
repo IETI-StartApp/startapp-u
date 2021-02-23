@@ -10,6 +10,7 @@ const useStyles = makeStyles({
         border: "1px solid #999"
     }    
 });
+
 export const MultistepForm = () => {
     const buttonMessage = activeStep === steps.length ? "Publicar" : "Next";
     const [activeStep, setActiveStep] = useState(0);
@@ -20,11 +21,11 @@ export const MultistepForm = () => {
     const getStepContent = (stepIndex) => {
         switch (stepIndex) {
             case 0:
-                return "Paso 1 Descripción del proyecto"
+                return "Paso 1 Descripción del proyecto";
             case 1:
-                return "Paso 2 Financiación del proyecto"
+                return "Paso 2 Financiación del proyecto";
             case 2:
-                return "Paso 3 Presentación del proyecto"
+                return "Paso 3 Presentación del proyecto";
             default:
                 return "Nada para hacer";
         }
