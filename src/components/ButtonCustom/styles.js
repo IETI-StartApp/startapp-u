@@ -10,15 +10,8 @@ export const Wrapper = styled.button`
     }
   }};
   border-radius: 5px;
-  border: 0;
+  border: 0 transparent;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-color: ${props => {
-    if (props.color === 'red') {
-      return "#950740"
-    } else if (props.color === 'grey') {
-      return "#2D3748"
-    }
-  }};
   @media all and (max-width: 750px) {
     width: ${props=>
             props.widthFull? '100%' : 'fit-content'

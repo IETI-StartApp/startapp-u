@@ -5,7 +5,7 @@ import CircleChecked from '@material-ui/icons/CheckCircleOutline';
 import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 import {CheckBoxArea, FooterWrapper, ForgotPasswdArea, InputArea, TextArea, Wrapper} from "./styles";
-import {CustomTypography} from "../ButtonCustom/Button";
+import {CustomTypography} from "../../components";
 import google from '../../icons/google.svg'
 import {useAuth} from "../../services/Auth";
 
@@ -26,8 +26,8 @@ export const Form: React.FunctionComponent = () => {
             console.log(emailRef.current.value, passwdRef.current.value)
             await signInWithEmailAndPassword(emailRef.current.value, passwdRef.current.value)
             console.log("You're signed in!")
-        } catch (e) {
-            console.error(e)
+        } catch (error) {
+            console.error(error)
         }
     }
     return (
