@@ -9,7 +9,7 @@ import globalTheme from "../../globalTheme";
 import styles from "./styles"
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
-export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
+export const ProjectDescription = React.memo(({formValues,handleChange,handleNext}) => {
     const classes = styles();
     const {projectName,projectDescription} = formValues;
     const CHARACTER_LIMIT = 120;
@@ -51,7 +51,7 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
                                 variant= "contained"
                                 className = {classes.btn}
                                 endIcon = {<MonetizationOnIcon/>}
-                                onClick = {handleNext}               
+                                onClick = {() => handleNext()}               
                             >
                                 Define tu Financiación
                             </Button>
@@ -61,4 +61,4 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
             </ThemeProvider>
         </div>
     )
-}
+});
