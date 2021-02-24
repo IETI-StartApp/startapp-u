@@ -19,11 +19,11 @@ export const Button = ({
                            children,
                            onClick,
                            color,
-                           textColor
+                           textColor,
+                           widthFull
                        }) => {
-
     return (
-        <Wrapper color={color} onClick={onClick}>
+        <Wrapper widthFull={widthFull}  color={color} onClick={onClick}>
             <CustomTypography text={textColor}>
                 {children}
             </CustomTypography>

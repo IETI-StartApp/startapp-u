@@ -9,9 +9,8 @@ export const Wrapper = styled.button`
       return "#2D3748"
     }
   }};
-  display: inline-flex;
-  border-radius: 3px;
-  border: none;
+  border-radius: 5px;
+  border: 0;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-color: ${props => {
     if (props.color === 'red') {
@@ -20,12 +19,19 @@ export const Wrapper = styled.button`
       return "#2D3748"
     }
   }};
+  @media all and (max-width: 750px) {
+    width: ${props=>
+            props.widthFull? '100%' : 'fit-content'
+    };
+  }
+  width: ${props=>
+          props.widthFull? '100%' : 'fit-content'
+  };
+  
   cursor: pointer;
-  position: relative;
-  align-items: center;
   box-sizing: border-box;
   padding: 0 20px;
-  height: 40px;
+  height: auto;
 
   font-family: Open Sans, sans-serif;
   font-style: normal;

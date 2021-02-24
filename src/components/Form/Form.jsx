@@ -1,41 +1,54 @@
-import React, {useState} from 'react';
-import {Checkbox, Link, TextField, Typography} from "@material-ui/core";
+import React, {useRef, useState} from 'react';
+import {Button, Checkbox, TextField, Typography} from "@material-ui/core";
 import 'typeface-roboto';
 import CircleChecked from '@material-ui/icons/CheckCircleOutline';
 import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
 
 import {CheckBoxArea, FooterWrapper, ForgotPasswdArea, InputArea, TextArea, Wrapper} from "./styles";
 import {CustomTypography} from "../ButtonCustom/Button";
+import google from '../../icons/google.svg'
+import {useAuth} from "../../services/Auth";
 
 export const Form: React.FunctionComponent = () => {
+
+    const {signInWithEmailAndPassword, signInWithGoogle} = useAuth();
     const [checked, setChecked] = useState(false);
-    const handleSubmit = (event) => {
-        console.log(typeof event)
-    }
+    const emailRef = useRef('');
+    const passwdRef = useRef('');
 
     function handleChange(event) {
         setChecked(event.target.checked)
     }
 
-    console.log(checked)
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            console.log(emailRef.current.value, passwdRef.current.value)
+            await signInWithEmailAndPassword(emailRef.current.value, passwdRef.current.value)
+            console.log("You're signed in!")
+        } catch (e) {
+            console.error(e)
+        }
+    }
     return (
         <Wrapper>
-            <form action={handleSubmit}>
-                <TextArea>
-                    <Typography>
-                        Password
-                    </Typography>
-                </TextArea>
-                <InputArea>
-                    <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth/>
-                </InputArea>
+            <form onSubmit={handleSubmit}>
                 <TextArea>
                     <Typography>
                         Email
                     </Typography>
                 </TextArea>
                 <InputArea>
-                    <TextField id="outlined-basic" label="Password" variant="outlined" fullWidth/>
+                    <TextField inputRef={emailRef} label="Email" variant="outlined" fullWidth type='email' required/>
+                </InputArea>
+                <TextArea>
+                    <Typography>
+                        Password
+                    </Typography>
+                </TextArea>
+                <InputArea>
+                    <TextField inputRef={passwdRef} label='Password' variant="outlined" fullWidth type='password'
+                               required/>
                 </InputArea>
                 <FooterWrapper>
                     <CheckBoxArea>
@@ -54,20 +67,41 @@ export const Form: React.FunctionComponent = () => {
                         <CustomTypography text='#2D3748' style={{padding: '10px 0'}}>Remember me</CustomTypography>
                     </CheckBoxArea>
                     <ForgotPasswdArea>
-                            <CustomTypography
-                                style={{padding: '10px 0', cursor: 'pointer'}}
-                                text='#2C5282'
-                                onClick={() => {
+                        <CustomTypography
+                            style={{padding: '10px 0', cursor: 'pointer'}}
+                            text='#2C5282'
+                            onClick={() => {
                                 console.log('shi')
                             }}
-                            >
-                                Forgot password?
-                            </CustomTypography>
+                        >
+                            Forgot password?
+                        </CustomTypography>
                     </ForgotPasswdArea>
-
                 </FooterWrapper>
-
+                <Button
+                    type='submit'
+                    fullWidth
+                    style={{
+                        background: "#950740",
+                        color: 'white',
+                        textTransform: 'none',
+                        height: '50px'
+                    }}>
+                    Login now
+                </Button>
             </form>
+            <Button onClick={signInWithGoogle}
+                    fullWidth
+                    style={{
+                        background: "#2D3748",
+                        color: 'white',
+                        textTransform: 'none',
+                        height: '50px',
+                        marginTop: '20px'
+                    }}>
+                <img src={google} height={20} width={20} style={{paddingRight: '11px'}} alt='logo'/>
+                Or sign-in with Google
+            </Button>
         </Wrapper>
     );
 
