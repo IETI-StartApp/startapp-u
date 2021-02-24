@@ -1,13 +1,8 @@
 import React, {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import "./styles.js";
-import {TextField} from '@material-ui/core';
-import {ButtonDesign} from "./styles";
-import {FormDesign} from "./styles";
-import {ErrorDesign} from "./styles";
-import { Grid } from '@material-ui/core';
-import {BackDesign} from "./styles";
-
+import {TextField,  Grid} from '@material-ui/core';
+import {ButtonDesign, FormDesign, ErrorDesign, BackDesign} from "./styles";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -65,36 +60,36 @@ export const Register = () => {
     
 	   
     
-    function validationForm(values){
+    function validationForm(valor){
         
-        let errors= {}
-        if (!values.username.trim()){
-            errors.username = "Username required"
+        let errores= {}
+        if (!valor.username.trim()){
+            errores.username = "Username required"
             setIsSubmitting(false)
         }
-        if (!values.email) {
-            errors.email = 'Email required';
+        if (!valor.email) {
+            errores.email = 'Email required';
             setIsSubmitting(false)
-          } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-            errors.email = 'Email address is invalid';
-            setIsSubmitting(false)
-        }
-        if (!values.password){
-            errors.password ="Password required"
-            setIsSubmitting(false)
-        }else if (values.password.length < 6){
-            errors.password ="Password needs at least 6 characters "
+          } else if (!/\S+@\S+\.\S+/.test(valor.email)) {
+            errores.email = 'Email address is invalid';
             setIsSubmitting(false)
         }
-        if (!values.password2){
-            errors.password2 ="Password required"
+        if (!valor.password){
+            errores.password ="Password required"
             setIsSubmitting(false)
-        }else if(values.password !== values.password2){
-            errors.password2 ="Password do not match"
+        }else if (valor.password.length < 6){
+            errores.password ="Password needs at least 6 characters "
+            setIsSubmitting(false)
+        }
+        if (!valor.password2){
+            errores.password2 ="Password required"
+            setIsSubmitting(false)
+        }else if(valor.password !== valor.password2){
+            errores.password2 ="Password do not match"
             setIsSubmitting(false)
         }
     
-        return errors; 
+        return errores; 
     }
     const classes =  useStyles();
     return (
@@ -114,8 +109,8 @@ export const Register = () => {
             <FormDesign className = "form"  onSubmit={handleSubmit}>
                 
                 
-                <h1>Complete Your Profile</h1>
-                <h3>For the purpose of industry regulation, you profile details are required</h3>
+                <h1>Completa tu perfil </h1>
+                <h3>A efectos de la regulación del sector, se requieren los datos de su perfil</h3>
                 
                 <div>
                 <TextField className={classes.inputField} id="outlined-basic" label="Nombre" name="username" type="text" value={values.username} onChange={handleChange}/>
