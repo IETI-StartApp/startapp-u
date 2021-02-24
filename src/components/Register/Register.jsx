@@ -64,28 +64,28 @@ export const Register = () => {
         
         let errores= {}
         if (!valor.username.trim()){
-            errores.username = "Username required"
+            errores.username = "Required"
             setIsSubmitting(false)
         }
         if (!valor.email) {
-            errores.email = 'Email required';
+            errores.email = 'Required';
             setIsSubmitting(false)
           } else if (!/\S+@\S+\.\S+/.test(valor.email)) {
             errores.email = 'Email address is invalid';
             setIsSubmitting(false)
         }
         if (!valor.password){
-            errores.password ="Password required"
+            errores.password ="Required"
             setIsSubmitting(false)
         }else if (valor.password.length < 6){
-            errores.password ="Password needs at least 6 characters "
+            errores.password ="Needs at least 6 characters "
             setIsSubmitting(false)
         }
         if (!valor.password2){
-            errores.password2 ="Password required"
+            errores.password2 ="Required"
             setIsSubmitting(false)
         }else if(valor.password !== valor.password2){
-            errores.password2 ="Password do not match"
+            errores.password2 ="Do not match"
             setIsSubmitting(false)
         }
     
