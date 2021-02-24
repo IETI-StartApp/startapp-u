@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState,useCallback } from 'react'
 import { ProgressBar } from '../components/Progressbar/ProgressBar'
 import { makeStyles, Typography } from '@material-ui/core';
 import steps from './steps';
 import {ProjectDescription} from '../components/ProjectForm/ProjectDescription';
+import {ProjectFinancing} from '../components/ProjectForm/ProjectFinancing';
 import {useForm} from "../hooks/useForm";
 const useStyles = makeStyles({
     root: {
@@ -25,26 +26,37 @@ const useStyles = makeStyles({
 export const RegisterProject = () => {
     const [activeStep, setActiveStep] = useState(0);
     const prevMessage = activeStep === steps.length ? "" : steps[activeStep-1];
-    const handleNext = () => {
-        setActiveStep(prevActiveStep => prevActiveStep + 1);
-    }
+    const handleNext = useCallback(() => {
+        setActiveStep(prevActiveStep => prevActiveStep + 1)}
+    );
     const handlePrev = () => {
         setActiveStep(prevActiveStep => prevActiveStep -1)
     }
     const [inputValues,handleInputChange] = useForm({
         projectName: '',
-        projectDescription: ''
+        projectDescription: '',
+        investment: 0,
+        minInvestment: 0,
     });
+    const [dueDate,setDueDate] = useState(new Date());
+    const handleDateChange = useCallback((date) => setDueDate(date));
+    const handleChange = useCallback(handleInputChange);
     const classes = useStyles();
     const getStepContent = (stepIndex) => {
         switch (stepIndex) {
             case 0:
                 return <ProjectDescription 
                         formValues={inputValues}
-                        handleChange={handleInputChange}
+                        handleChange={handleChange}
                         handleNext={handleNext}/>;
             case 1:
-                return "Paso 2 Financiación del proyecto";
+                return <ProjectFinancing 
+                        formValues={inputValues}
+                        handleChange={handleChange}
+                        handleNext={handleNext}
+                        zone={{zone:"co-CO",region:"COP"}}
+                        handleDateChange = {handleDateChange}
+                        />;
             case 2:
                 return "Paso 3 Presentación del proyecto";
             default:
