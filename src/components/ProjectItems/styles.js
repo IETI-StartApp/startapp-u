@@ -4,7 +4,8 @@ export const useStyles = makeStyles((theme) => ({
 
     sizeCard : {
         maxWidth : '350px',
-        height: '500px'
+        minWidth: '320px',
+        height: '500px',
     },
 
     mainColor :{
@@ -13,6 +14,11 @@ export const useStyles = makeStyles((theme) => ({
 
     avatar :{
         backgroundColor: '#950740',
+    },
+
+    cardGrid: {
+        paddingTop: theme.spacing(8),
+        paddingBottom: theme.spacing(8),
     },
 
 }));
