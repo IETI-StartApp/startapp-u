@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import "./styles.js";
 import {Grid, TextField} from '@material-ui/core';
 import {BackDesign, ButtonDesign, ErrorDesign, FormDesign} from "./styles";
+import {useAuth} from "../../services/Auth";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Register = () => {
+    const {createUserWithEmailAndPassword} = useAuth();
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -50,7 +52,7 @@ export const Register = () => {
         setErrors(validationForm(values));
         setIsSubmitting(true)
         if (Object.keys(errors) < 1 && isSubmitting) {
-            console.log("hola")
+            createUserWithEmailAndPassword(values.email,values.contra,values.username).then(console.log('SUCCESS'))
         }
 
     }

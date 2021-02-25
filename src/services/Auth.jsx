@@ -3,6 +3,7 @@ import {Auth} from "./firebase-config"
 
 import firebase from "firebase/app"
 import "firebase/auth"
+import "firebase/database";
 
 
 const AuthContext = React.createContext()
@@ -16,9 +17,8 @@ export const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const google = new firebase.auth.GoogleAuthProvider();
 
-    const createUserWithEmailAndPassword = (email, password) => {
-        return Auth.createUserWithEmailAndPassword(email, password)
-    }
+    const createUserWithEmailAndPassword = (email, password) =>
+        Auth.createUserWithEmailAndPassword(email, password)
 
     const signInWithEmailAndPassword = (email, password) => {
         return Auth.signInWithEmailAndPassword(email, password)
