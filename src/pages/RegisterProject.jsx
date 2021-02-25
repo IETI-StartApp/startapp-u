@@ -46,6 +46,7 @@ export const RegisterProject = () => {
     const handleDateChange = useCallback((date) => setDueDate(date));
     const handleChange = useCallback(handleInputChange);
     const classes = useStyles();
+    const dueDateString = dueDate.toDateString();
     const getStepContent = (stepIndex) => {
         switch (stepIndex) {
             case 0:
@@ -64,7 +65,7 @@ export const RegisterProject = () => {
             case 2:
                 return <ProjectPresentation/>;
             default:
-                return "Nada para hacer";
+                return "Nada para hacer" + dueDateString;
         }
     }
     return (
