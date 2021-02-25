@@ -41,6 +41,7 @@ export const RegisterProjectPage = () => {
         projectDescription: '',
         investment: 0,
         minInvestment: 0,
+        country: ''
     });
     const [dueDate,setDueDate] = useState(new Date());
     const handleDateChange = useCallback((date) => setDueDate(date));
@@ -63,7 +64,13 @@ export const RegisterProjectPage = () => {
                         handleDateChange = {handleDateChange}
                         />;
             case 2:
-                return <ProjectPresentation/>;
+                return <ProjectPresentation 
+                        formValues={inputValues}
+                        handleChange={handleChange}
+                        handleNext={handleNext}
+                        zone={{zone:"co-CO",region:"COP"}}
+                        handleDateChange = {handleDateChange}
+                        />;
             default:
                 return "Nada para hacer" + dueDateString;
         }
