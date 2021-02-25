@@ -3,6 +3,7 @@ import {Step, StepLabel, Stepper, ThemeProvider} from '@material-ui/core';
 import steps from './steps';
 import progressTheme from './theme'
 
+
 export const ProgressBar = ({activeStep}) => {
     return (
 
