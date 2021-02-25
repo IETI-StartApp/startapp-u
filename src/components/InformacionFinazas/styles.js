@@ -22,7 +22,7 @@ export const styles = makeStyles((theme) => ({
         padding: theme.spacing(2),
        
       },
-    valor:{
+    valores:{
         fontFamily: 'Roboto',
         fontStyle: 'Roboto',
         fontWeight: 'Roboto',
