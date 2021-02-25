@@ -1,7 +1,6 @@
 # Ignore environment variables
 .env
 .env*
-!.env.example
 
 # Logs
 logs
@@ -26,3 +25,6 @@ lib
 
 # Desktop services store
 **/.DS_Store
+
+./package-lock.json
+./yarn.lock
