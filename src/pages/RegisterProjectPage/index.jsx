@@ -1,34 +1,34 @@
 import React, { useState,useCallback } from 'react'
-import { ProgressBar } from '../components/Progressbar/ProgressBar'
+import { ProgressBar } from '../../components/Progressbar/ProgressBar'
 import { makeStyles, Fab } from '@material-ui/core';
 import steps from './steps';
-import {ProjectDescription} from '../components/ProjectForm/ProjectDescription';
-import {ProjectFinancing} from '../components/ProjectForm/ProjectFinancing';
-import {ProjectPresentation} from '../components/ProjectForm/ProjectPresentation';
-import {useForm} from "../hooks/useForm";
+import {ProjectDescription} from '../../components/ProjectForm/ProjectDescription';
+import {ProjectFinancing} from '../../components/ProjectForm/ProjectFinancing';
+import {ProjectPresentation} from '../../components/ProjectForm/ProjectPresentation';
+import {useForm} from "../../hooks/useForm";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {ThemeProvider} from "@material-ui/core/styles";
-import globalTheme from "../globalTheme";
+import globalTheme from "../../globalTheme";
 
 const useStyles = makeStyles({
     root: {
-        '@media (min-width:480px)': { 
+        '@media (min-width:480px)': {
             width: '70%'
         },
-        '@media (min-width:600px)': { 
+        '@media (min-width:600px)': {
             width: '70%'
         },
-        '@media (min-width:801px)': { 
+        '@media (min-width:801px)': {
             width: '60%'
         },
-        '@media (min-width:1025px)': { 
+        '@media (min-width:1025px)': {
             width: '50%'
         },
         margin: "4rem auto",
-    }    
+    }
 });
 
-export const RegisterProject = () => {
+export const RegisterProjectPage = () => {
     const [activeStep, setActiveStep] = useState(0);
     const handleNext = useCallback(() => {
         setActiveStep(prevActiveStep => prevActiveStep + 1)}
@@ -50,12 +50,12 @@ export const RegisterProject = () => {
     const getStepContent = (stepIndex) => {
         switch (stepIndex) {
             case 0:
-                return <ProjectDescription 
+                return <ProjectDescription
                         formValues={inputValues}
                         handleChange={handleChange}
                         handleNext={handleNext}/>;
             case 1:
-                return <ProjectFinancing 
+                return <ProjectFinancing
                         formValues={inputValues}
                         handleChange={handleChange}
                         handleNext={handleNext}
@@ -81,7 +81,7 @@ export const RegisterProject = () => {
                     <>
                         <Fab size="small" color="primary" aria-label="edit" onClick={handlePrev}>
                             <ArrowBackIcon />
-                        </Fab>        
+                        </Fab>
                     </>
                 )}
             </div>
