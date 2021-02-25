@@ -1,9 +1,9 @@
 import React from 'react';
-import { Grid, Box, Container } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 import CardProject from './CardProject';
 import { useStyles } from './styles';
 
-export default function ProjectsGrid ( {  }) {
+export default function ProjectsGrid ( ) {
 
     const classes = useStyles();
     const projects = [{},{},{},{},{},{}];
