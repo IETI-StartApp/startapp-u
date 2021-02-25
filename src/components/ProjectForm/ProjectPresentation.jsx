@@ -14,11 +14,9 @@ import 'date-fns';
 import { Video } from '../Video/Video'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
-export const ProjectPresentation = ({ formValues, handleChange,
-    handleNext}) => {
+export const ProjectPresentation = ({ formValues, handleChange, handleNext}) => {
     const classes = styles();
-    const { country } = formValues;
-    const [videoSource, setVideoSource] = useState("");
+    const { country,videoSource } = formValues;
     const [isVisible, setVisible] = useState(false);
     return (
         <div className={classes.mainContainer}>
@@ -48,8 +46,9 @@ export const ProjectPresentation = ({ formValues, handleChange,
                                     label="Link del video"
                                     variant="outlined"
                                     value={videoSource}
+                                    name="videoSource"
                                     className={classes.inputField}
-                                    onChange={({ target }) => setVideoSource(target.value)}
+                                    onChange={handleChange}
                                     InputProps={{
                                         startAdornment: <InputAdornment position="start"><span>🎥</span></InputAdornment>,
                                     }}
