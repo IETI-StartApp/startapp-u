@@ -1,3 +1,4 @@
 export * from './LoginPage/index'
 export * from './RegisterProjectPage/index'
-export * from './RegisterPage/Register'
+export * from './RegisterPage/RegisterForm'
+export * from './UserTypePage/UserSelect'

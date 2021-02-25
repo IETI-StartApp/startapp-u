@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from '@material-ui/core'
-import { BackDesign } from "./styles";
-import { Card } from "./Card"
-import { styleCard } from "./styleCard"
+import { BackDesign } from "../../components/Register/styles";
+import { Card } from "../../components/Register/Card"
+import { styleCard } from "../../components/Register/styleCard"
 
 
 export const UserSelect = () => {
