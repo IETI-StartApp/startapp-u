@@ -12,8 +12,7 @@ export const CustomTypography = withStyles({
     root: {
         color: props => props.text
     }
-})
-(Typography);
+})(Typography);
 
 export const Button = ({
                            children,
@@ -23,7 +22,7 @@ export const Button = ({
                            widthFull
                        }) => {
     return (
-        <Wrapper widthFull={widthFull}  color={color} onClick={onClick}>
+        <Wrapper widthFull={widthFull} color={color} onClick={onClick}>
             <CustomTypography text={textColor}>
                 {children}
             </CustomTypography>
