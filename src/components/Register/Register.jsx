@@ -36,8 +36,8 @@ export const Register = () => {
     const [values,setValues] = useState({
         username: "",
         email:"",
-        password: "",
-        password2: ""
+        contra: "",
+        contra2: ""
     })
     const handleChange = e =>{
         setValues({
@@ -74,18 +74,18 @@ export const Register = () => {
             errores.email = 'Email address is invalid';
             setIsSubmitting(false)
         }
-        if (!valor.password){
-            errores.password ="Required"
+        if (!valor.contra){
+            errores.contra ="Required"
             setIsSubmitting(false)
-        }else if (valor.password.length < 6){
-            errores.password ="Needs at least 6 characters "
+        }else if (valor.contra.length < 6){
+            errores.contra ="Needs at least 6 characters "
             setIsSubmitting(false)
         }
-        if (!valor.password2){
-            errores.password2 ="Required"
+        if (!valor.contra2){
+            errores.contra2 ="Required"
             setIsSubmitting(false)
-        }else if(valor.password !== valor.password2){
-            errores.password2 ="Do not match"
+        }else if(valor.contra !== valor.contra2){
+            errores.contra2 ="Do not match"
             setIsSubmitting(false)
         }
     
@@ -123,12 +123,12 @@ export const Register = () => {
                         {errors.email && <ErrorDesign>{errors.email}</ErrorDesign>}
                 </div> 
                 <div className="inputs">
-                    <TextField  className={classes.inputField} id="standard-basic" label="Password" type="password" name="password" value={values.password} onChange={handleChange}/>
-                        {errors.password && <ErrorDesign>{errors.password}</ErrorDesign>}
+                    <TextField  className={classes.inputField} id="standard-basic" label="Password" type="password" name="contra" value={values.contra} onChange={handleChange}/>
+                        {errors.contra && <ErrorDesign>{errors.contra}</ErrorDesign>}
                 </div> 
                 <div className="inputs">
-                    <TextField  className={classes.inputField} id="standard-basic" label="Confirmed password" type="password" name="password2" value={values.password2} onChange={handleChange}/>
-                        {errors.password2 && <ErrorDesign>{errors.password2}</ErrorDesign>}
+                    <TextField  className={classes.inputField} id="standard-basic" label="Confirmed Password" type="password" name="contra2" value={values.contra2} onChange={handleChange}/>
+                        {errors.contra2 && <ErrorDesign>{errors.contra2}</ErrorDesign>}
                 </div>  
             
                 
