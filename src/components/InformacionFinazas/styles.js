@@ -23,6 +23,7 @@ export const styles = makeStyles((theme) => ({
        
       },
     valores:{
+
         fontFamily: 'Roboto',
         fontStyle: 'Roboto',
         fontWeight: 'Roboto',
