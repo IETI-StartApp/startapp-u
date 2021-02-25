@@ -18,7 +18,6 @@ export const ProjectFinancing = React.memo(({formValues,handleChange,
     handleNext,handleDateChange,zone:{region,zone}}) => {
     const classes = styles();
     const {investment,minInvestment} = formValues;    
-    const minInversionText = "La inversión mínima deber ser menor que la total";
     const currencyFormater = Intl.NumberFormat(zone , {style: "currency", currency: region});
     return (
         <div className = {classes.mainContainer}>
@@ -41,9 +40,6 @@ export const ProjectFinancing = React.memo(({formValues,handleChange,
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                                 onChange={handleChange}
-                                error={minInvestment > investment}
-                                autoFocus
-                                helperText={minInvestment > investment && minInversionText} 
                         />
                         <TextField
                                 label="Inversión mínima"
@@ -52,12 +48,9 @@ export const ProjectFinancing = React.memo(({formValues,handleChange,
                                 value={minInvestment}
                                 className={classes.inputField}
                                 onChange={handleChange}
-                                autoFocus
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                }}
-                                error={minInvestment > investment}
-                                helperText={minInvestment > investment && minInversionText}                        
+                                }}                 
                         />
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardDatePicker
