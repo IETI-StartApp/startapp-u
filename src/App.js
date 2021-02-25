@@ -2,14 +2,19 @@ import React from "react";
 import './App.css';
 import {AuthProvider} from "./services/Auth";
 import {LoginPage} from "./pages";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 function App() {
     return (
-            <div>
+        <>
+            <Router>
                 <AuthProvider>
-                    <LoginPage/>
+                    <Switch>
+                        <Route path="/login" component={LoginPage}/>
+                    </Switch>
                 </AuthProvider>
-            </div>
+            </Router>
+        </>
     );
 }
 

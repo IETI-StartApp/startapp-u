@@ -43,11 +43,11 @@ export const Form: React.FunctionComponent = () => {
                 </InputArea>
                 <TextArea>
                     <Typography>
-                        Password
+                        Contraseña
                     </Typography>
                 </TextArea>
                 <InputArea>
-                    <TextField inputRef={passwdRef} label='Password' variant="outlined" fullWidth type='password'
+                    <TextField inputRef={passwdRef} label='Contraseña' variant="outlined" fullWidth type='password'
                                required/>
                 </InputArea>
                 <FooterWrapper>
@@ -64,7 +64,7 @@ export const Form: React.FunctionComponent = () => {
                             icon={<CircleUnchecked/>}
                             checkedIcon={<CircleChecked/>}
                         />
-                        <CustomTypography text='#2D3748' style={{padding: '10px 0'}}>Remember me</CustomTypography>
+                        <CustomTypography text='#2D3748' style={{padding: '10px 0'}}>Recordarme</CustomTypography>
                     </CheckBoxArea>
                     <ForgotPasswdArea>
                         <CustomTypography
@@ -74,7 +74,7 @@ export const Form: React.FunctionComponent = () => {
                                 console.log('shi')
                             }}
                         >
-                            Forgot password?
+                            ¿Olvidaste la contraseña?
                         </CustomTypography>
                     </ForgotPasswdArea>
                 </FooterWrapper>
@@ -87,7 +87,7 @@ export const Form: React.FunctionComponent = () => {
                         textTransform: 'none',
                         height: '50px'
                     }}>
-                    Login now
+                    Entrar
                 </Button>
             </form>
             <Button onClick={signInWithGoogle}
@@ -100,7 +100,7 @@ export const Form: React.FunctionComponent = () => {
                         marginTop: '20px'
                     }}>
                 <img src={google} height={20} width={20} style={{paddingRight: '11px'}} alt='logo'/>
-                Or sign-in with Google
+                Entrar con Google
             </Button>
         </Wrapper>
     );
