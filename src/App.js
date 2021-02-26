@@ -1,8 +1,9 @@
 import React from "react";
 import './App.css';
 import {AuthProvider} from "./services/Auth";
-import {LoginPage, Register, RegisterProjectPage} from "./pages";
+import {LoginPage, RegisterProjectPage, UserSelect} from "./pages";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import RegisterForm from "./components/Register/RegisterForm";
 
 function App() {
     return (

@@ -55,9 +55,8 @@ export const Register = () => {
         setErrors(validationForm(values));
         setIsSubmitting(true)
         if (Object.keys(errors) < 1 && isSubmitting){
-           console.log("hola")
+            createUserWithEmailAndPassword(values.email,values.contra,values.username).then(console.log('SUCCESS'))
         }
-
     }
 
 
