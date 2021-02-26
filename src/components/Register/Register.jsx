@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
-import { makeStyles } from '@material-ui/core/styles';
 import "./styles.js";
+import React, {useState} from 'react'
 import {TextField,  Grid} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import {ButtonDesign, FormDesign, ErrorDesign, BackDesign} from "./styles";
+import {useAuth} from "../../services/Auth";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -33,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export const Register = () => {
+    const {createUserWithEmailAndPassword} = useAuth();
+
     const [values,setValues] = useState({
         username: "",
         email:"",
@@ -53,15 +56,15 @@ export const Register = () => {
         setErrors(validationForm(values));
         setIsSubmitting(true)
         if (Object.keys(errors) < 1 && isSubmitting){
-           console.log("hola")
+            createUserWithEmailAndPassword(values.email,values.contra,values.username).then(console.log('SUCCESS'))
         }
        
     }
     
 	   
     
-    function validationForm(valor){
-        
+
+    function validationForm(valor){ 
         let errores= {}
         if (!valor.username.trim()){
             errores.username = "Required"
@@ -88,7 +91,7 @@ export const Register = () => {
             errores.contra2 ="Do not match"
             setIsSubmitting(false)
         }
-    
+
         return errores; 
     }
     const classes =  useStyles();
