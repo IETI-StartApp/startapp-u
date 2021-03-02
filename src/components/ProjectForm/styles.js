@@ -30,6 +30,10 @@ const styles = makeStyles({
         "&:hover": {
             background: "#68042e",
         }
+    },
+    investment: {
+        color: "#950743",
+        textAlign: "center"
     }
 
 });

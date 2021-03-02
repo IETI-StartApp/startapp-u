@@ -9,11 +9,11 @@ import globalTheme from "../../globalTheme";
 import styles from "./styles"
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
-export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
+export const ProjectDescription = React.memo(({formValues,handleChange,handleNext}) => {
     const classes = styles();
     const {projectName,projectDescription} = formValues;
-    const CHARACTER_LIMIT = 120;
-    
+    const DESCRIPTION_LIMIT = 120;
+    const CHARACTER_LIMIT = 20;
     return (
         <div className = {classes.mainContainer}>
             <ThemeProvider theme={globalTheme}>
@@ -29,6 +29,10 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
                             color = "primary"
                             name = "projectName" 
                             value = {projectName}
+                            inputProps={{
+                                maxLength: CHARACTER_LIMIT
+                            }}
+                            helperText={`${projectName.length}/${CHARACTER_LIMIT}`}
                             onChange = {handleChange}
                         />
                         <TextField
@@ -41,9 +45,9 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
                             value = {projectDescription}
                             onChange = {handleChange}
                             inputProps={{
-                                maxLength: 120,
+                                maxLength: DESCRIPTION_LIMIT
                             }}
-                            helperText={`${projectDescription.length}/${CHARACTER_LIMIT}`}
+                            helperText={`${projectDescription.length}/${DESCRIPTION_LIMIT}`}
                             rows = {3}
                         />
                         <>
@@ -51,7 +55,7 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
                                 variant= "contained"
                                 className = {classes.btn}
                                 endIcon = {<MonetizationOnIcon/>}
-                                onClick = {handleNext}               
+                                onClick = {() => handleNext()}               
                             >
                                 Define tu Financiación
                             </Button>
@@ -61,4 +65,4 @@ export const ProjectDescription = ({formValues,handleChange,handleNext}) => {
             </ThemeProvider>
         </div>
     )
-}
+});

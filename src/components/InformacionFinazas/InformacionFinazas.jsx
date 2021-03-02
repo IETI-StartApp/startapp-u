@@ -4,13 +4,21 @@ import {styles} from './styles'
 import { Button } from '../ButtonCustom/Button';
 
 
-export const InformacionFinazas = () => {
+export const InformacionFinazas = ({
+                                    valor,
+                                    inversionistas,
+                                    valoracion,
+                                    InversionMinima,
+                                    socios,
+                                    fechaInicio,
+                                    FechaFin, 
+}) => {
     const classes = styles();
     return(
         <>
         <Grid container >
-            <Grid item xs={12} className={classes.valor}>
-                1.000.000
+            <Grid item xs={12} className={classes.valores}>
+                {valor}
             </Grid>
         </Grid>
         <hr color='#960740' size ='3' width ='67%'/>
@@ -19,7 +27,7 @@ export const InformacionFinazas = () => {
                 <Grid item xs={6}>
                     <List>
                         <ListItemText className={classes.numeros}>
-                            <text className={classes.numeros}>0</text>     
+                            <text className={classes.numeros}>{inversionistas}</text>     
                         </ListItemText>
                         <ListItemText>
                             <text className={classes.descripcion}>Inversionistas</text>
@@ -29,7 +37,7 @@ export const InformacionFinazas = () => {
                 <Grid item xs={6}>
                     <List>
                         <ListItemText className={classes.numeros}>
-                            <text className={classes.numeros}>0</text>     
+                            <text className={classes.numeros}>{valoracion}</text>     
                         </ListItemText>
                         <ListItemText>
                             <text className={classes.descripcion}>Valoración</text>
@@ -43,7 +51,7 @@ export const InformacionFinazas = () => {
                 <Grid item xs={6}>
                     <List>
                         <ListItemText className={classes.numeros}>
-                            <text className={classes.numeros}>0</text>     
+                            <text className={classes.numeros}>{InversionMinima}</text>     
                         </ListItemText>
                         <ListItemText>
                             <text className={classes.descripcion}>Inversión minima</text>
@@ -53,7 +61,7 @@ export const InformacionFinazas = () => {
                 <Grid item xs={6}>
                     <List>
                         <ListItemText className={classes.numeros}>
-                           <text className={classes.numeros}>0</text>    
+                           <text className={classes.numeros}>{socios}</text>    
                         </ListItemText>
                         <ListItemText>
                             <text className={classes.descripcion}>Días faltantes</text>
@@ -67,7 +75,7 @@ export const InformacionFinazas = () => {
                 <Grid item xs={6}>
                     <List>
                         <ListItemText >
-                            <text className={classes.numeros}>02/02/2020</text>    
+                            <text className={classes.numeros}>{fechaInicio}</text>    
                         </ListItemText>
                         <ListItemText>
                             <text className={classes.descripcion}>Fecha inicio</text>
@@ -77,7 +85,7 @@ export const InformacionFinazas = () => {
                 <Grid item xs={6}>
                     <List>
                         <ListItemText className={classes.numeros}>
-                            <text className={classes.numeros}>28/02/2020</text>
+                            <text className={classes.numeros}>{FechaFin}</text>
                         </ListItemText>
                         <ListItemText>
                             <text className={classes.descripcion}>Fecha Final</text>
@@ -87,7 +95,7 @@ export const InformacionFinazas = () => {
             </Grid>
         </Paper>
 
-        <Grid item xs={12} className={classes.valor}>
+        <Grid item xs={12} className={classes.valores}>
             <Button green onClick={() => console.log("HOLA")} >
                 Invertir ahora
             </Button>
