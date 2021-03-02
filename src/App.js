@@ -1,20 +1,20 @@
 import React from "react";
 import './App.css';
 import {AuthProvider} from "./services/Auth";
-import {LoginPage, RegisterProjectPage, UserSelect} from "./pages";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import RegisterForm from "./components/Register/RegisterForm";
+import {LoginPage, RegisterForm, UserSelect, RegisterProjectPage} from "./pages";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 function App() {
     return (
         <>
             <Router>
                 <AuthProvider>
-                    <Switch>
-                        <Route path="/login" component={LoginPage}/>
-                        <Route path="/register-project" component={RegisterProjectPage}/>
-                        <Route path="/signup" component = {RegisterForm}/>
-                        <Route path="/userselect" component = {UserSelect}/>
+                    <Switch>  
+                        <Route exact path="/login" component={LoginPage}/>
+                        <Route exact path="/register-project" component={RegisterProjectPage}/>
+                        <Route exact path="/signup" component = {RegisterForm}/>
+                        <Route exact path="/userselect" component = {UserSelect}/>
                     </Switch>
                 </AuthProvider>
             </Router>
