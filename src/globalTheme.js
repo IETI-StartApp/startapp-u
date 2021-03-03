@@ -4,6 +4,9 @@ const globalTheme = createMuiTheme({
     palette: {
         primary:{
             main: '#950743'
+        },
+        error:{
+            main: '#f50057'
         }
     },
 
